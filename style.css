@@ -380,7 +380,6 @@ body {
     font-size: 12px;
 }
 
-/* Адаптивность для мобильных */
 @media (max-width: 768px) {
     .title {
         font-size: 16px;
@@ -407,5 +406,255 @@ body {
     .pixel-btn {
         padding: 12px 20px;
         font-size: 12px;
+    }
+}
+
+/* для телефона */
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 18px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+    
+    .envelope {
+        width: 160px;
+        height: 112px;
+    }
+    
+    .envelope-flap {
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        border-top: 56px solid #ff8787;
+    }
+    
+    .heart-on-envelope {
+        font-size: 32px;
+    }
+    
+    .click-hint {
+        font-size: 11px;
+        margin-top: 20px;
+        padding: 0 20px;
+    }
+    
+    .pixel-window {
+        margin: 10px;
+        border-width: 3px;
+        box-shadow: 4px 4px 0px #ff6b6b;
+    }
+    
+    .window-header {
+        padding: 8px;
+        font-size: 10px;
+    }
+    
+    .window-content {
+        padding: 15px;
+    }
+    
+    .hearts-divider {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .question-text {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .cat-head {
+        width: 60px;
+        height: 45px;
+    }
+    
+    .ear {
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 20px solid #2b2d42;
+    }
+    
+    .eye {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .cat-body {
+        width: 45px;
+        height: 30px;
+    }
+    
+    .big-heart {
+        font-size: 40px;
+    }
+    
+    .buttons-container {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .pixel-btn {
+        padding: 15px 30px;
+        font-size: 14px;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .letter-title {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .letter-text {
+        font-size: 10px;
+        line-height: 1.8;
+        padding: 15px;
+        max-height: 350px;
+    }
+    
+    .letter-signature {
+        font-size: 11px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .title {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    
+    .envelope {
+        width: 140px;
+        height: 98px;
+    }
+    
+    .envelope-flap {
+        border-left: 70px solid transparent;
+        border-right: 70px solid transparent;
+        border-top: 49px solid #ff8787;
+    }
+    
+    .heart-on-envelope {
+        font-size: 28px;
+    }
+    
+    .pixel-window {
+        margin: 5px;
+        border-width: 2px;
+        box-shadow: 3px 3px 0px #ff6b6b;
+    }
+    
+    .window-header {
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+    
+    .window-content {
+        padding: 12px;
+    }
+    
+    .hearts-divider {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .question-text {
+        font-size: 12px;
+    }
+    
+    .cat-head {
+        width: 50px;
+        height: 38px;
+    }
+    
+    .cat-body {
+        width: 38px;
+        height: 25px;
+    }
+    
+    .big-heart {
+        font-size: 32px;
+    }
+    
+    .pixel-btn {
+        padding: 12px 25px;
+        font-size: 12px;
+        max-width: 180px;
+    }
+    
+    .letter-title {
+        font-size: 14px;
+    }
+    
+    .letter-text {
+        font-size: 9px;
+        line-height: 1.6;
+        padding: 12px;
+        max-height: 300px;
+    }
+    
+    .letter-signature {
+        font-size: 10px;
+    }
+    
+    .sparkle-heart {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .title {
+        font-size: 14px;
+    }
+    
+    .envelope {
+        width: 120px;
+        height: 84px;
+    }
+    
+    .pixel-btn {
+        padding: 10px 20px;
+        font-size: 11px;
+    }
+    
+    .letter-text {
+        font-size: 8px;
+        padding: 10px;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .pixel-window {
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+    
+    .window-content {
+        padding: 10px;
+    }
+    
+    .cat-with-heart {
+        margin: 15px 0;
+    }
+    
+    .big-heart {
+        font-size: 35px;
+    }
+    
+    .buttons-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .pixel-btn {
+        flex: 1;
+        min-width: 100px;
     }
 }
