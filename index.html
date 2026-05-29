@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 Letter for Seva!!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <div class="start-screen" id="startScreen">
+        <h1 class="title">♡ Letter for Seva!! ♡</h1>
+        <div class="envelope-container" onclick="openEnvelope()">
+            <div class="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="heart-on-envelope">❤</div>
+                </div>
+            </div>
+            <p class="click-hint">Нажми на конверт...</p>
+        </div>
+    </div>
+
+    <div class="window-container" id="windowContainer" style="display: none;">
+        <div class="pixel-window">
+            <div class="window-header">
+                <span class="window-title">LOVE</span>
+                <div class="window-buttons">
+                    <span>_</span>
+                    <span>□</span>
+                    <span>×</span>
+                </div>
+            </div>
+            
+            <div class="window-content">
+                <div class="hearts-divider">
+                    <span>❤</span><span></span><span>❤</span><span></span><span>❤</span>
+                </div>
+
+                <div class="question-section" id="questionSection">
+                    <p class="question-text">Do you love me?</p>
+                    
+                    <div class="cat-with-heart">
+                        <div class="pixel-cat">
+                            <div class="cat-head">
+                                <div class="cat-ears">
+                                    <div class="ear left"></div>
+                                    <div class="ear right"></div>
+                                </div>
+                                <div class="cat-face">
+                                    <div class="cat-eyes">
+                                        <div class="eye left"></div>
+                                        <div class="eye right"></div>
+                                    </div>
+                                    <div class="cat-nose"></div>
+                                </div>
+                            </div>
+                            <div class="cat-body">
+                                <div class="cat-paws"></div>
+                            </div>
+                        </div>
+                        <div class="big-heart">❤</div>
+                    </div>
+
+                    <div class="buttons-container">
+                        <button class="pixel-btn yes-btn" onclick="showLoveLetter()">YES</button>
+                        <button class="pixel-btn no-btn" id="noBtn" onmouseover="runAway()" onclick="runAway()">NO</button>
+                    </div>
+                </div>
+
+                <div class="love-letter" id="loveLetter" style="display: none;">
+                    <h2 class="letter-title">My love... ♡</h2>
+                    <div class="letter-text">
+                        <p>Я хотела поговорить с тобой хотя бы немного. 
+                            И если ты это читаешь, значит, ты всё ещё где-то рядом — хотя бы в моих мыслях. 
+                            Дай знать, если готов выслушать.</p>
+                        <p>Ты значишь для меня всё. 
+                            Иногда слова кажутся такими маленькими, чтобы описать то, что у меня в сердце, но я попробую.</p>
+                        <p>Ты — мой дом, мой покой, моё безопасное место в этом мире. 
+                            Когда я думаю о счастье, я думаю о тебе.</p>
+                        <p>Я знаю, что не идеальна. Знаю, что иногда делаю ошибки, и мне правда жаль, что мои слова или действия причиняли тебе боль (ты ни разу этого не говорил, но мне кажется такое было).
+                            Как факт я была виновата во всех ссорах, я просила слишком много, но
+                            я не хотела, чтобы всё закончилось вот так — на полуслове, без шанса всё исправить.</p>
+                        <p>Я люблю тебя. Не из привычки и не из страха одиночества, а потому что с тобой я настоящая.
+                            Если в твоём сердце остался хотя бы маленький уголок для меня — скажи.
+                             Не молчи. Мы можем просто поговорить. Без обвинений, без давления. 
+                             Просто ты и я.</p>
+                    </div>
+                    <div class="letter-signature">
+                        <p>Люблю тебя оч сильно... ♡</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const heartShapes = ['❤', '♡', '',];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => addHeart(container, heartShapes), i * 200);
+            }
+            
+            setInterval(() => {
+                addHeart(container, heartShapes);
+            }, 800);
+            
+            createSparkleHearts(container);
+        }
+
+        function addHeart(container, shapes) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+            
+            // Случайные параметры для разнообразия
+            const size = Math.random() * 25 + 8;
+            const left = Math.random() * 100;
+            const duration = Math.random() * 15 + 10;
+            const delay = Math.random() * 5;
+            const opacity = Math.random() * 0.5 + 0.2;
+            
+            heart.style.fontSize = size + 'px';
+            heart.style.left = left + '%';
+            heart.style.animationDuration = duration + 's';
+            heart.style.animationDelay = delay + 's';
+            heart.style.opacity = opacity;
+            
+            const colors = ['#ff8787', '#ffb3c1', '#ff6b6b', '#ffc9c9', '#ff9999'];
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            
+            container.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), (duration + delay) * 1000);
+        }
+
+        function createSparkleHearts(container) {
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle-heart';
+                sparkle.textContent = '❤';
+                
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.fontSize = (Math.random() * 15 + 5) + 'px';
+                sparkle.style.animationDelay = Math.random() * 4 + 's';
+                sparkle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                
+                container.appendChild(sparkle);
+            }
+        }
+
+        function openEnvelope() {
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('windowContainer').style.display = 'flex';
+        }
+
+        function runAway() {
+            const noBtn = document.getElementById('noBtn');
+            const maxX = window.innerWidth - 150;
+            const maxY = window.innerHeight - 100;
+            
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+        }
+
+        function showLoveLetter() {
+            document.getElementById('questionSection').style.display = 'none';
+            document.getElementById('loveLetter').style.display = 'block';
+            
+            const container = document.getElementById('floatingHearts');
+            const shapes = ['❤', '♡', ''];
+            
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    addHeart(container, shapes);
+                }, i * 100);
+            }
+        }
+
+        createFloatingHearts();
+    </script>
+</body>
+</html>
