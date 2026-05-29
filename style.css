@@ -101,11 +101,14 @@ body {
     50% { transform: scale(1.05); }
 }
 
-/* Конверт */
+/* Emoji Конверт */
 .envelope-container {
     cursor: pointer;
     animation: bounce 2s ease-in-out infinite;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @keyframes bounce {
@@ -113,47 +116,14 @@ body {
     50% { transform: translateY(-20px); }
 }
 
-.envelope {
-    width: 200px;
-    height: 140px;
-    position: relative;
-    background: #ff6b6b;
-    border: 4px solid #c92a2a;
-    image-rendering: pixelated;
+.emoji-envelope {
+    font-size: 120px;
+    filter: drop-shadow(0 8px 16px rgba(255, 107, 107, 0.4));
+    transition: transform 0.3s ease;
 }
 
-.envelope-flap {
-    width: 0;
-    height: 0;
-    border-left: 100px solid transparent;
-    border-right: 100px solid transparent;
-    border-top: 70px solid #ff8787;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-}
-
-.envelope-body {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 70px;
-    background: #ffc9c9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.heart-on-envelope {
-    font-size: 40px;
-    color: #ff4d6d;
-    animation: heartbeat 1s ease-in-out infinite;
-}
-
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.3); }
+.envelope-container:hover .emoji-envelope {
+    transform: scale(1.1);
 }
 
 .click-hint {
@@ -162,6 +132,8 @@ body {
     font-size: 12px;
     animation: blink 1.5s ease-in-out infinite;
     z-index: 2;
+    text-align: center;
+    padding: 0 20px;
 }
 
 @keyframes blink {
@@ -303,6 +275,11 @@ body {
     animation: heartbeat 1s ease-in-out infinite;
 }
 
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
 /* Кнопки */
 .buttons-container {
     margin-top: 30px;
@@ -380,36 +357,7 @@ body {
     font-size: 12px;
 }
 
-@media (max-width: 768px) {
-    .title {
-        font-size: 16px;
-    }
-    
-    .envelope {
-        width: 150px;
-        height: 105px;
-    }
-    
-    .pixel-window {
-        margin: 10px;
-    }
-    
-    .window-content {
-        padding: 15px;
-    }
-    
-    .letter-text {
-        font-size: 9px;
-        line-height: 1.8;
-    }
-    
-    .pixel-btn {
-        padding: 12px 20px;
-        font-size: 12px;
-    }
-}
-
-/* для телефона */
+/* ========== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ========== */
 
 @media (max-width: 768px) {
     .title {
@@ -418,25 +366,13 @@ body {
         padding: 0 20px;
     }
     
-    .envelope {
-        width: 160px;
-        height: 112px;
-    }
-    
-    .envelope-flap {
-        border-left: 80px solid transparent;
-        border-right: 80px solid transparent;
-        border-top: 56px solid #ff8787;
-    }
-    
-    .heart-on-envelope {
-        font-size: 32px;
+    .emoji-envelope {
+        font-size: 100px;
     }
     
     .click-hint {
         font-size: 11px;
         margin-top: 20px;
-        padding: 0 20px;
     }
     
     .pixel-window {
@@ -530,19 +466,8 @@ body {
         margin-bottom: 30px;
     }
     
-    .envelope {
-        width: 140px;
-        height: 98px;
-    }
-    
-    .envelope-flap {
-        border-left: 70px solid transparent;
-        border-right: 70px solid transparent;
-        border-top: 49px solid #ff8787;
-    }
-    
-    .heart-on-envelope {
-        font-size: 28px;
+    .emoji-envelope {
+        font-size: 90px;
     }
     
     .pixel-window {
@@ -614,9 +539,8 @@ body {
         font-size: 14px;
     }
     
-    .envelope {
-        width: 120px;
-        height: 84px;
+    .emoji-envelope {
+        font-size: 80px;
     }
     
     .pixel-btn {

@@ -11,13 +11,10 @@
 
     <div class="start-screen" id="startScreen">
         <h1 class="title">♡ Letter for Seva!! ♡</h1>
+        
+        <!-- Emoji конверт -->
         <div class="envelope-container" onclick="openEnvelope()">
-            <div class="envelope">
-                <div class="envelope-flap"></div>
-                <div class="envelope-body">
-                    <div class="heart-on-envelope">❤</div>
-                </div>
-            </div>
+            <div class="emoji-envelope">💌</div>
             <p class="click-hint">Нажми на конверт...</p>
         </div>
     </div>
@@ -116,7 +113,6 @@
             heart.className = 'floating-heart';
             heart.textContent = shapes[Math.floor(Math.random() * shapes.length)];
             
-            // Случайные параметры для разнообразия
             const size = Math.random() * 25 + 8;
             const left = Math.random() * 100;
             const duration = Math.random() * 15 + 10;
@@ -133,7 +129,6 @@
             heart.style.color = colors[Math.floor(Math.random() * colors.length)];
             
             container.appendChild(heart);
-            
             setTimeout(() => heart.remove(), (duration + delay) * 1000);
         }
 
@@ -178,10 +173,10 @@
             const container = document.getElementById('floatingHearts');
             const shapes = ['❤', '♡', ''];
             
-            for (let i = 0; i < 40; i++) {
+            for (let i = 0; i < 10; i++) {
                 setTimeout(() => {
                     addHeart(container, shapes);
-                }, i * 100);
+                }, i * 200);
             }
         }
 
